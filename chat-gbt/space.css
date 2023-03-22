@@ -1,0 +1,194 @@
+body {
+    
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 20px;
+  }
+  
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .glass-morphism {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  a {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #0f1b3d;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Pink and Purple Elements */
+  
+  header {
+    border-bottom: 2px solid #e6d4f0;
+  }
+  
+  nav a:hover {
+    color: #e6d4f0;
+  }
+  
+  h1 {
+    text-shadow: 2px 2px #e6d4f0;
+  }
+  
+  .glass-morphism {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  h2 {
+    color: #fca5f1;
+  }
+  
+  a {
+    background-color: #fca5f1;
+    color: #0f1b3d;
+  }
+  
+  a:hover {
+    background-color: #a9529e;
+  }
+  body {
+    background-color: #0f1b3d;
+    background-image: url('https://i.imgur.com/gk9NITZ.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  
+  .star--small {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .star--medium {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .star--large {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .star--xlarge {
+    width: 5px;
+    height: 5px;
+  }
+  
+  @keyframes twinkle {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  body {
+    background: linear-gradient(to right, #FF7EB3, #6B8AC6, #9B4E9E);
+    background-size: 600% 100%;
+    animation: wave 10s ease-in-out infinite;
+  }
+  
+  @keyframes wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .space {
+   
+    text-shadow: 0 0 20px #ffffff;
+    animation: glow 1s ease-in-out infinite alternate;
+    text-align: center;
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 20px #ffffff;
+    }
+    100% {
+      text-shadow: 0 0 40px #ffffff, 0 0 60px #ffffff, 0 0 80px #ffffff;
+    }
+  }
+  
