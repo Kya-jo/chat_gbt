@@ -4,65 +4,49 @@ document.addEventListener('mousemove', e => {
   circle.style.left = e.pageX + 'px';
   circle.style.top = e.pageY + 'px';
 });
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-const nav = document.querySelector('.slider-nav');
-const prevBtn = document.createElement('button');
-const nextBtn = document.createElement('button');
-let slideWidth = slides[0].clientWidth;
-let slideIndex = 0;
 
-// Set up slider navigation
-prevBtn.classList.add('prev');
-prevBtn.textContent = 'Prev';
-nextBtn.classList.add('next');
-nextBtn.textContent = 'Next';
-nav.appendChild(prevBtn);
-nav.appendChild(nextBtn);
+const carouselSlide = document.querySelector('.carousel-slide');
+const carouselImages = document.querySelectorAll('.carousel-slide img');
 
-// Set up slide positions
-slides.forEach((slide, index) => {
-  slide.style.left = `${index * 100}%`;
-});
+// Buttons
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
 
-// Handle click on prev button
-prevBtn.addEventListener('click', () => {
-  if (slideIndex > 0) {
-    slideIndex--;
-    slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
-    setActiveButton();
-  }
-});
+// Counter
+let counter = 1;
+const size = carouselImages[0].clientWidth;
 
-// Handle click on next button
+carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+// Button Listeners
 nextBtn.addEventListener('click', () => {
-  if (slideIndex < slides.length - 1) {
-    slideIndex++;
-    slider.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
-    setActiveButton();
+  if (counter >= carouselImages.length - 1) return;
+  carouselSlide.style.transition = "transform 0.5s ease-in-out";
+  counter++;
+  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+prevBtn.addEventListener('click', () => {
+  if (counter <= 0) return;
+  carouselSlide.style.transition = "transform 0.5s ease-in-out";
+  counter--;
+  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+// Transition Listener
+carouselSlide.addEventListener('transitionend', () => {
+  if (carouselImages[counter].alt === 'lastClone') {
+    carouselSlide.style.transition = "none";
+    counter = carouselImages.length - 2;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  }
+  if (carouselImages[counter].alt === 'firstClone') {
+    carouselSlide.style.transition = "none";
+    counter = carouselImages.length - counter;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
   }
 });
-
-// Set active button based on current slide
-function setActiveButton() {
-  const buttons = nav.querySelectorAll('button');
-  buttons.forEach((button, index) => {
-    if (index === slideIndex) {
-      button.classList.add('active');
-    } else {
-      button.classList.remove('active');
-    }
-  });
-}
-
-// Handle swipe gesture
-let touchStartX = 0;
-let touchEndX = 0;
-slider.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
+document.getElementById("myButton").addEventListener("click", function(event) {
+  event.preventDefault();
+  // rest of the button code
 });
-slider.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].clientX;
-  if (touchStartX - touchEndX > 50) {
-    nextBtn.click();
-  } else if (touchStartX - touchEndX < -50
